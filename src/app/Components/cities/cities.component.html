@@ -1,0 +1,18 @@
+<div class="container">
+    <select  [ngModel]="city" (ngModelChange)="onCityChange($event)" class="m-3 col-sm-2 form-check-inline form-control selcls">
+        <option value=""> Please Select City </option>
+        <option *ngFor="let city of cityList" [value]="city">{{city}} </option>
+    </select>
+
+    <div class="card-deck">
+            <div class="m-2 float-right"  *ngFor="let cityInfo of cityListInfo"  style="width: 20rem;">
+                <div class="card"  (click)="showReview(cityInfo)" ngDefaultControl>
+                    <img class="card-img-top"  src={{cityInfo.picture_url}}>
+                    <div class="card-block">
+                        <h4 class="card-title">{{cityInfo.name}}</h4>
+                        <div class="card-text">{{cityInfo.neighborhood}}</div>
+                    </div>
+                </div>
+             </div>
+    </div>
+</div>
